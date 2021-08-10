@@ -1,4 +1,5 @@
 /* Add application styles & imports to this file! */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 .flex {
     display: -webkit-box;
@@ -10,7 +11,7 @@
 }
 
 body {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 .icon {
@@ -19,4 +20,8 @@ body {
     position: absolute;
     right: 20px;
     top: -2px;
+}
+
+p {
+    font-family: Lato;
 }

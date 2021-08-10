@@ -1,3 +1,22 @@
-<p>
-  weather-card works!
-</p>
+<div *ngIf="forecast$ | async as forecast">
+    <div class="well flex">
+        <div>
+            <h3>{{ forecast.city }} ({{ zipCode }})</h3>
+            <h4>Current conditions: {{ forecast.condition }}</h4>
+            <h4>Temperatures today:</h4>
+            <p>
+                Current {{ forecast.temperature }}
+                - Max {{ forecast.maxTemp }}
+                - Min {{ forecast.minTemp }}
+            </p>
+            <p>
+                <a href="#" routerLink="/forecast/{{ zipCode }}">Show 5-day forecast for {{ forecast.city }}</a>
+            </p>
+        </div>
+        <div>
+            <span class="close" (click)="onRemoveLocation()">×</span>
+            <img src="https://www.angulartraining.com/images/weather/{{ forecast.icon }}">
+        </div>
+    </div>
+    <hr>
+</div>

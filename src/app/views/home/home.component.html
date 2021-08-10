@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="well">
+        <h2>Enter a zipcode:</h2>
+        <input class="form-control" placeholder="Zipcode" type="text" id="addLocation" [formControl]="formControl">
+        <br>
+        <button class="btn btn-primary" id="addLocationBtn" (click)="onAddLocation()">
+            Add location
+        </button>
+    </div>
+    <app-weather-card *ngFor="let location of locations"
+                      (onRemove)="onRemoveLocation($event)"
+                      [zipCode]="location"></app-weather-card>
+</div>

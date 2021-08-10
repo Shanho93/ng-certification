@@ -1,3 +1,20 @@
-<p>
-  forecast works!
-</p>
+<div class="container-fluid" *ngIf="forecasts$ | async as forecasts">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">5-day forecast for {{ forecasts[0]?.city }}</h3>
+
+        </div>
+        <ul class="list-group">
+            <!---->
+            <li class="list-group-item" *ngFor="let forecast of forecasts">
+                {{ forecast.timestamp | date: 'EEEE, MMM d' }}:
+                {{ forecast.condition }}
+                - Min: {{ forecast.minTemp }}
+                - Max: {{ forecast.maxTemp }}
+
+                <img class="icon" src="https://www.angulartraining.com/images/weather/{{ forecast.icon }}">
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-success" tabindex="0" id="mainPageBtn" routerLink="/">&lt; Back to main page</button>
+</div>
